@@ -103,20 +103,13 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  char *data = "hello";
-	HAL_UART_Transmit(&huart1,(uint8_t*)data,5, 1000);
 
-	  int button_state =HAL_GPIO_ReadPin( GPIOA, GPIO_PIN_10);
+		  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_10,GPIO_PIN_SET);// SET THE PN10 IN PORT E AS HIGH
+		  HAL_Delay(1000);// PUT A DELAY OF 1s
+		  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_10,GPIO_PIN_RESET);// SET THE PN10 IN PORT E AS LOW
+		  HAL_Delay(1000);// PUT A DELAY OF 1s
 
-	  if(button_state == 0)
-	  {
-		  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_10,GPIO_PIN_SET);
-	  }
-	  else
-	  {
-		  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_10,GPIO_PIN_RESET);
 
-	  }
   }
   /* USER CODE END 3 */
 }
